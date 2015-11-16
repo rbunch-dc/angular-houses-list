@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="houseList">
+<head>
+  <title>House List</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+	<script src="angular.min.js"></script>
+	 	<script src="houses.js"></script>
+		<script src="controller.js"></script>
+
+</head>
+<body ng-controller="housesListCtrl">
+	<div class="container-fluid">
+    	<h1>My Houses</h1>
+
+      <div class="row">
+          <div class="col-sm-5">
+            <button class="btn btn-primary btn-lg" ng-click="addHouse()"ng-disabled="!enableAdd()">Add New House</button>
+            <button class="btn btn-danger btn-lg" ng-click="removeHouses()">Clear All Houses</button>
+          </div>  
+        <div class="col-sm-4 col-sm-offset-3">
+          <input class="form-control input-lg" placeholder="Search" ng-model="searchHouses">
+        </div>
+      </div>
+
+    	<div class="row">
+
+    		<div class="col-sm-4" ng-repeat="house in houses | filter:searchHouses">
+    			<h3>{{house.name}}</h3>
+   				<p><img src="{{house.photo}}" width="200"></p>
+    			<h4>{{house.address}}</h4>
+    			<h4>{{house.forSale}}</h4>
+    			<h4>${{house.price}}</h4>
+    			<h4>Zestimate: ${{house.zestimate}}</h4>
+    			<h4>{{house.onDiscount}}</h4>
+    			<h4>Estimated Mortgage: {{house.mortgage}}</h4>
+    		</div>
+    </div>
+</div>
+
+
+
