@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="houseList">
+<html ng-app="houseList2">
 <head>
   <title>Houses List</title>
   <style>
@@ -13,143 +13,13 @@
 		<script src="angular.min.js"></script>
 	 	<script src="houses.js"></script>
 		<script src="controller.js"></script>
+		<script src="angular-route.min.js"></script>
 
 </head>
 <body>
-  <div class="container-fluid" ng-controller="siteEditCtrl">
+  <div class="container-fluid" ng-controller="adminCtrl">
     <h1>My Dream Houses</h1>
-
-      <div ng-show="view=='list'">
-      	<div ng-include="'views/listHouses.html'"></div>
-
-      </div>
-
-      <div ng-show="view=='add'">
-        <h3>Specify the details of the house:</h3>
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="House Name" 
-                   ng-model="houseBox"/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="Photo URL" 
-                   ng-model="housePhoto"/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="Address" 
-                   ng-model="houseAddress"/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="For Sale/NOT for sale" 
-                   ng-model="forSale"/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="Price" 
-                   ng-model="price"/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="Zestimate" 
-                   ng-model="zestimate"/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="How good a deal is it?" 
-                   ng-model="dealDetails"/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input class="form-control input-lg" type="text" 
-                   placeholder="Estimated Mortgage" 
-                   ng-model="mortgage"/>
-          </div>
-        </div>
-
-        <div class="row" style="margin-top: 12px;">
-          <div class="col-sm-6">
-            <button class="btn btn-success btn"
-                    ng-disabled="houseBox==''"
-                    ng-click="add()">
-              Add
-            </button>
-            <button class="btn btn-warning btn"
-                    ng-click="cancel()">
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
-
-    <div ng-show="view=='edit'">
-      <h3>Edit the name of the house:</h3>
-      <div class="row">
-        <div class="col-sm-6">
-          <input class="form-control input-lg" type="text"
-                 placeholder="house name" 
-                 ng-model="houseBox.name" />
-        </div>
-      </div>
-      <div class="row" style="margin-top: 12px;">
-        <div class="col-sm-6">
-          <button class="btn btn-success btn"
-                  ng-disabled="houseBox==''"
-                  ng-click="save()">
-            Save
-          </button>
-          <button class="btn btn-warning btn"
-                  ng-click="cancel()">
-            Cancel
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div ng-show="view=='delete'">
-      <h3>Confirm delete</h3>
-      <div class="row">
-        <div class="col-sm-8">
-          <p>
-            Are you sure you want to delete this house: '{{getSelected()}}'?
-          </p>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 12px;">
-        <div class="col-sm-6">
-          <button class="btn btn-success btn"
-                  ng-click="cancel()">No
-          </button>
-          <button class="btn btn-danger btn"
-                  ng-click="remove()">Yes
-          </button>
-        </div>
-      </div>
-    </div>
-
+    	 <div ng-view></div>
   </div>
 </body>
 </html>

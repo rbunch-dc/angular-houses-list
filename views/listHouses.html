@@ -1,20 +1,6 @@
 
-        <div class="row">
-          <div class="col-sm-12">
-            <button class="btn btn-primary btn-lg"
-                    ng-click="startAdd()">Add new House
-            </button>
-          </div>
-        </div>
-        <h2>List of Houses</h2>
          <div class="row" ng-repeat="house in houses"
              ng-class="{oddRow: $index % 2 == 0}">
-
-
-<!--          <div class="row" ng-repeat="house in houses"
-             ng-class-odd="'odd'" ng-class-even="'even'">
- -->
-
 
           <div class="col-sm-8">
             <h4>{{$index + 1}}: {{house.name}}</h4>
